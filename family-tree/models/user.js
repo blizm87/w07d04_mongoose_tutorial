@@ -16,6 +16,10 @@ var userSchema = new mongoose.Schema({
   updateAt: Date
 });
 
-var User = mongoose.model('user', userSchema);
+userSchema.methods.sayHello = function() {
+  console.log( "Hi " + this.firstName );
+};
 
-module.exports = User;
+var userDetails = mongoose.model('members', userSchema);
+
+module.exports = userDetails;
